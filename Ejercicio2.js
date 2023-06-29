@@ -22,3 +22,56 @@ function invertirCadena(cad = ""){
 }
 
 invertirCadena("");
+//6)
+function palabraRepetida(texto = "", palabra = ""){
+    if(!texto || !palabra){
+        return 0;
+    }
+
+    let textoE = texto.toLowerCase();
+    let palabraE = palabra.toLowerCase();
+
+    let palabras = texto.split(" ");
+    let contador = 0;
+    for(let i = 0; i <= palabras.length; i++){
+        if(palabras[i] === palabraE){
+            contador++;
+        }
+    }
+    return console.log(contador);
+}
+
+palabraRepetida("hola hola hola hola", "hola");
+
+//7)
+function esPalidroma(cad = ""){
+    if(!cad){
+        console.log("la cadena no existe");
+        return;
+    }
+
+    if(typeof cad !== "string"){
+        console.log("El argumento debe ser una cadena de texto")
+        return;
+    }
+    if(typeof cad === "string"){
+        let newcad = cad.split("").reverse().join("");
+        if(newcad == cad){
+            console.log(`la cadena de texto "${cad}" es igual su inversion "${newcad}" por lo tanto es palindroma`);
+        }else{
+            console.log(`la palabra "${cad}" no es palindroma`);
+        }
+    }
+}
+
+esPalidroma("ANA");
+
+//8) 
+    const eliminarCaracteres = (texto = "", patron = "") =>
+    (!texto)
+    ? console.warn("No ingresaste un texto")
+    : (!patron)
+        ? console.warn("No ingresaste un patron de caracteres")
+        : console.info(texto.replace(new RegExp(patron, "ig"),""));
+
+eliminarCaracteres("xyz1, xyz2, xyz3, xyz4", "xyz");
